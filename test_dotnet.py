@@ -86,7 +86,7 @@ class DotNetTester:
             print(f"  - {os.path.basename(pkg)}")
 
         cmd = ["sudo", "eopkg", "it"] + packages_to_install
-        os.system(" ".join(cmd))
+        self.run_command(cmd)
 
     def uninstall_all_dotnet(self):
         """Uninstall all dotnet packages"""
@@ -112,7 +112,7 @@ class DotNetTester:
                 unique_packages.append(pkg)
 
         cmd = ["sudo", "eopkg", "remove"] + unique_packages
-        os.system(" ".join(cmd))
+        self.run_command(cmd)
 
     def get_framework_version(self, major_version: str) -> str:
         """Get the framework version string for a major version"""
